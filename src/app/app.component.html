@@ -7,7 +7,7 @@
   
               <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
                 <i class="fas fa-check-square me-1"></i>
-                <u>My Todo-s</u>
+                MY TODO-S 
               </p>
   
               <div class="pb-2">
@@ -22,9 +22,9 @@
                     </div>
                     <div class="mb-3">
                       <label  class="form-label">Date and Time</label>
-                      <input [(ngModel)]="edate" type="datetime" class="form-control" name="edate" >
+                      <input [(ngModel)]="edate" type="date" class="form-control" name="edate" >
                     </div>
-                    <button type="submit" class="btn btn-primary" (click)="readdata()">ADD</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!(ename && edes && edate)" (click)="readdata()">ADD</button>
                   </form>
                 </div>
               </div>
@@ -47,32 +47,30 @@
                 <a href="#!" style="color: #23af89;" data-mdb-toggle="tooltip" title="Ascending"><i
                     class="fas fa-sort-amount-down-alt ms-2"></i></a>
               </div>
-  <div *ngFor="let i of datalist">
-              <ul class="list-group list-group-horizontal rounded-0 bg-transparent" >
-                <li
-                  class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
-                  <div class="form-check">
-                    <input class="form-check-input me-0" type="checkbox" value="" id="flexCheckChecked1"
-                      aria-label="..." checked />
-                  </div>
-                </li>
-                <li
-                  class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                  <p class="lead fw-normal mb-0">{{i.ename}}</p>
-                </li>
-                <li
-                  class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                  <p class="lead fw-normal mb-0">{{i.edes}}</p>
-                </li>
-                <li
-                  class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 border-0 bg-transparent">
-                  <p class="lead fw-normal mb-0">{{i.edate}}</p>
-                </li>
-              </ul>
-              <div>
-                <button class="btn btn-danger">delete </button>
-              </div>
-            </div>
+              <!-- table -->
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i of listofdatas" >
+                    <td> <input type="checkbox"></td>
+                    <td>{{i.ename}}</td>
+                    <td>{{i.edes}}</td>
+                    <td>{{i.edate}}</td>
+                    <td>
+                      <button class="btn btn-danger" (click)="deleteValue(i._id)">Delete</button>
+                    </td>
+                  </tr>
+              </table>
+              
             </div>
           </div>
         </div>

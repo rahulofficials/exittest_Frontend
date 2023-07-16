@@ -16,8 +16,8 @@ export class ApiService {
     return this.http.post("http://localhost:3000/adddata",data)
   }
   // deletedata
-  removeData=(data:any)=>{
-    return this.http.post("http://localhost:3000/deletedata",data)
+  removeData=(_id:any)=>{
+    return this.http.post("http://localhost:3000/deletedata",_id)
    }
  
 

@@ -6,9 +6,12 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
+
   
   ],
   imports: [
@@ -16,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    KeyValuePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
